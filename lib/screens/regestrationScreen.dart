@@ -36,12 +36,31 @@ class RegestrationScreen extends StatelessWidget {
                       border: Border.all(color: Colors.white54),
                       borderRadius: BorderRadius.circular(13)),
                   child: const TextField(
-                    obscureText: true,
+                    // obscureText: true,
                     style: TextStyle(
                       fontSize: 20,
                     ),
                     decoration: InputDecoration(
-                        hintText: 'password', hintStyle: TextStyle(fontSize: 15)
+                        labelText: 'UserName',
+                        hintStyle: TextStyle(fontSize: 15)
+                        //hintTextDirection: TextDirection.rtl,
+                        ),
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                  decoration: BoxDecoration(
+                      color: kLogTextfiled,
+                      border: Border.all(color: Colors.white54),
+                      borderRadius: BorderRadius.circular(13)),
+                  child: const TextField(
+                    // obscureText: true,
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                    decoration: InputDecoration(
+                        labelText: 'Email', hintStyle: TextStyle(fontSize: 15)
                         //hintTextDirection: TextDirection.rtl,
                         ),
                   )),
@@ -59,7 +78,8 @@ class RegestrationScreen extends StatelessWidget {
                       fontSize: 20,
                     ),
                     decoration: InputDecoration(
-                        hintText: 'password', hintStyle: TextStyle(fontSize: 15)
+                        labelText: 'password',
+                        hintStyle: TextStyle(fontSize: 15)
                         //hintTextDirection: TextDirection.rtl,
                         ),
                   )),
@@ -77,25 +97,8 @@ class RegestrationScreen extends StatelessWidget {
                       fontSize: 20,
                     ),
                     decoration: InputDecoration(
-                        hintText: 'password', hintStyle: TextStyle(fontSize: 15)
-                        //hintTextDirection: TextDirection.rtl,
-                        ),
-                  )),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                  decoration: BoxDecoration(
-                      color: kLogTextfiled,
-                      border: Border.all(color: Colors.white54),
-                      borderRadius: BorderRadius.circular(13)),
-                  child: const TextField(
-                    obscureText: true,
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
-                    decoration: InputDecoration(
-                        hintText: 'password', hintStyle: TextStyle(fontSize: 15)
+                        labelText: 'Confirm password',
+                        hintStyle: TextStyle(fontSize: 15)
                         //hintTextDirection: TextDirection.rtl,
                         ),
                   )),
@@ -114,8 +117,10 @@ class RegestrationScreen extends StatelessWidget {
                   child: const Text("Login Here",
                       style: TextStyle(color: Colors.blue)),
                   onPressed: () {
-                    Navigator.pushReplacement((context),
-                        CupertinoPageRoute(builder: (context) => const LoginPage()));
+                    Navigator.pushReplacement(
+                        (context),
+                        CupertinoPageRoute(
+                            builder: (context) => const LoginPage()));
                   },
                 ),
               ],
