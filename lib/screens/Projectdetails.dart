@@ -1,5 +1,6 @@
-import 'package:afourthon/constants.dart';
 import 'package:flutter/material.dart';
+
+import '../constants/constants.dart';
 
 class ProDetails extends StatefulWidget {
   const ProDetails({Key? key}) : super(key: key);
@@ -9,8 +10,12 @@ class ProDetails extends StatefulWidget {
 }
 
 class _ProDetailsState extends State<ProDetails> {
+  double appBarHeight = 120;
 
-  double appBarHeight =120;
+  static const kGradientColour = LinearGradient(
+      colors: [Colors.redAccent, kLogTColour],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -19,7 +24,7 @@ class _ProDetailsState extends State<ProDetails> {
         child: Scaffold(
           // extendBodyBehindAppBar: true,//
           appBar: AppBar(
-            backgroundColor: kLogTColour,
+            backgroundColor: Color(0xffF35c5b),
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                     bottomRight: Radius.circular(5),
@@ -29,37 +34,45 @@ class _ProDetailsState extends State<ProDetails> {
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
             centerTitle: true,
-            bottom: TabBar(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              indicatorSize: TabBarIndicatorSize.tab,
-              indicatorWeight: 4,
-              labelStyle:
-                  const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              splashBorderRadius: BorderRadius.circular(5),
-              tabs: const [
-                Tab(
-                  icon: Icon(Icons.description),
-                  text: 'Description',
+            bottom: PreferredSize(
+              preferredSize: Size.fromHeight(60),
+              child: Container(
+                decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                        colors: [Colors.redAccent, kLogTColour],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight)),
+                child: TabBar(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  indicatorSize: TabBarIndicatorSize.tab,
+                  indicatorWeight: 4,
+                  labelStyle: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.bold),
+                  splashBorderRadius: BorderRadius.circular(5),
+                  tabs: const [
+                    Tab(
+                      icon: Icon(Icons.description),
+                      text: 'Description',
+                    ),
+                    Tab(
+                      icon: Icon(
+                        Icons.details,
+                      ),
+                      text: 'Details',
+                    ),
+                  ],
                 ),
-                Tab(
-                  icon: Icon(
-                    Icons.details,
-                  ),
-                  text: 'Details',
-                ),
-              ],
+              ),
             ),
           ),
           body: TabBarView(
-
             children: [
-
               Container(
                 decoration: BoxDecoration(
                     gradient: LinearGradient(colors: [
                   kLogTColour.withOpacity(0.3),
-                   // Colors.white.withOpacity(0.4),
-                   Colors.white.withOpacity(0.4),
+                  // Colors.white.withOpacity(0.4),
+                  Colors.white.withOpacity(0.4),
                   kLogTColour.withOpacity(0.3),
                 ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
                 child: Padding(
@@ -76,43 +89,38 @@ class _ProDetailsState extends State<ProDetails> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: const [
-
                           Padding(
                             padding: EdgeInsets.all(20.0),
                             child: Text(
                               "Project Name",
                               style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30,
-                              color: Colors.black),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 30,
+                                  color: Colors.black),
                             ),
                           ),
                           Divider(
                             color: Colors.black,
-                            height:4 ,
+                            height: 4,
                           ),
-
                           Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Text(
-                                textAlign: TextAlign.left,"Description:",
+                              textAlign: TextAlign.left,
+                              "Description:",
                               style: TextStyle(
-                                  fontSize: 20,fontWeight: FontWeight.bold
-                              ),
-                              ),
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
                           ),
                           Padding(
                             padding: EdgeInsets.all(8.0),
-                            child: Text("A project is any undertaking, carried out individually or collaboratively and possibly involving research or design, that is carefully planned to achieve a particular goal ",
-
-
-
+                            child: Text(
+                              "A project is any undertaking, carried out individually or collaboratively and possibly involving research or design, that is carefully planned to achieve a particular goal ",
                               style: TextStyle(
-                              fontSize: 20,fontWeight: FontWeight.w400
+                                  fontSize: 20, fontWeight: FontWeight.w400),
+                              textAlign: TextAlign.start,
                             ),
-                            textAlign: TextAlign.start,),
                           )
-
                         ],
                       ),
                     ),
@@ -122,11 +130,11 @@ class _ProDetailsState extends State<ProDetails> {
               Container(
                 decoration: BoxDecoration(
                     gradient: LinearGradient(colors: [
-                      kLogTColour.withOpacity(0.3),
-                      // Colors.white.withOpacity(0.4),
-                      Colors.white.withOpacity(0.4),
-                      kLogTColour.withOpacity(0.3),
-                    ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
+                  kLogTColour.withOpacity(0.3),
+                  // Colors.white.withOpacity(0.4),
+                  Colors.white.withOpacity(0.4),
+                  kLogTColour.withOpacity(0.3),
+                ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Card(
@@ -140,7 +148,6 @@ class _ProDetailsState extends State<ProDetails> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
-
                       ),
                     ),
                   ),
@@ -150,11 +157,6 @@ class _ProDetailsState extends State<ProDetails> {
           ),
         ),
       ),
-
-
     );
-
   }
-
-
 }

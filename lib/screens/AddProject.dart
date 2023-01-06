@@ -10,6 +10,14 @@ class AddPro extends StatefulWidget {
 class _AddProState extends State<AddPro> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Add New Project '),
+        bottom: const PreferredSize(
+          preferredSize: Size.fromHeight(10),
+          child: Text('Enter the Project Details'),
+        ),
+      ),
+    );
   }
 }

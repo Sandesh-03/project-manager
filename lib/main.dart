@@ -1,9 +1,15 @@
+import 'package:afourthon/providers/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'screens/loginPage.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(
+      create: (context) => UserProvider(),
+    ),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -15,12 +21,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor:  Colors.white10,
+        scaffoldBackgroundColor: Colors.white10,
         primarySwatch: Colors.cyan,
         primaryColor: Colors.cyan,
       ),
-      home:const LoginPage(),
+      home: const LoginPage(),
     );
   }
 }
-

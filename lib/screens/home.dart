@@ -1,20 +1,26 @@
-import 'dart:ui';
-
-import 'package:afourthon/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../constants/constants.dart';
+import 'AddProject.dart';
 import 'Projectdetails.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  static const kGradientColour = LinearGradient(
+      colors: [Colors.redAccent, kLogTColour],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight);
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: kLogTColour,
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(gradient: kGradientColour),
+          ),
           centerTitle: true,
           title: const Text(
             "Projects",
@@ -24,7 +30,14 @@ class HomePage extends StatelessWidget {
           actions: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
+              child: IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (context) => const AddPro()));
+                  },
+                  icon: const Icon(Icons.add)),
             )
           ],
         ),
@@ -43,25 +56,21 @@ class HomePage extends StatelessWidget {
                               builder: (context) => const ProDetails()));
                     },
                     child: Container(
-                      padding: const EdgeInsets.all(15),
-                      margin: const EdgeInsets.all(8),
-
+                      padding: const EdgeInsets.all(12),
+                      // margin: const EdgeInsets.all(8),
                       child: Stack(
                         children: [
-                          BackdropFilter(
-                              filter: ImageFilter.blur(
-                            sigmaX: 5,
-                                sigmaY: 5,
-                          )),
                           Container(
+                            height: MediaQuery.of(context).size.height / 3,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(30),
                                 gradient: LinearGradient(
                                     begin: Alignment.topLeft,
                                     end: Alignment.bottomRight,
                                     colors: [
-                                      Colors.white.withOpacity(0.5),
-                                      kLogTColour.withOpacity(0.2),
+                                      kLogTColour,
+                                      Colors.white.withOpacity(0.6),
+                                      Colors.redAccent,
                                     ])),
                             child: Padding(
                               padding: const EdgeInsets.all(5.0),
@@ -84,7 +93,6 @@ class HomePage extends StatelessWidget {
                                     ),
                                     maxLines: 6,
                                     overflow: TextOverflow.ellipsis,
-
                                   )
                                 ],
                               ),

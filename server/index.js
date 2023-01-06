@@ -5,7 +5,7 @@ const authRouter = require("./routes/auth.js");
 const DBURL =
   "mongodb+srv://sandesh:sandesh@cluster0.kqu2uxe.mongodb.net/?retryWrites=true&w=majority";
 
-const PORT = 3000;
+const PORT = 3000; 
 const app = express();
 
 
@@ -23,6 +23,6 @@ mongoose
     console.log(e);
   });
   
-app.listen(PORT, () => {
+app.listen(PORT,"0.0.0.0", () => {
   console.log(`connection sucessful at port ${PORT}`);
 });

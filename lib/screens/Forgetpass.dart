@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
+
+import '../constants/constants.dart';
 
 class ResetPass   extends StatefulWidget {
   const ResetPass({Key? key}) : super(key: key);
